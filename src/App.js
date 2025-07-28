@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import './App.css';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="site-wrapper">
       {/* Header */}
@@ -13,11 +23,23 @@ function App() {
             <p className="site-subtitle">Legal Services</p>
           </div>
         </div>
-        <nav className="nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
+        
+        {/* Mobile menu button */}
+        <div className="menu-toggle" onClick={toggleMenu}>
+          <div className="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        
+        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+          <a href="#home" onClick={closeMenu}>Home</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#services" onClick={closeMenu}>Services</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <a href="tel:+917981650127" onClick={closeMenu}>Call</a>
+          <a href="tel:+917981650127" className="phone-link-mobile" onClick={closeMenu}>+91 79816 50127</a>
         </nav>
         <div className="header-right">
           <a href="tel:+917981650127" className="phone-icon-link" style={{ display: 'inline-block', marginRight: 8 }}>
@@ -491,20 +513,20 @@ function ContactFormWeb3Forms() {
       <div className="contact-form-row">
         <div className="contact-form-group">
           <label>Full Name *</label>
-          <input type="text" name="name" placeholder="Enter your full name" required />
+          <input type="text" name="name" placeholder="Enter your full name" required style={{width: '100%'}} />
         </div>
         <div className="contact-form-group">
           <label>Phone Number *</label>
-          <input type="tel" name="phone" placeholder="Enter your phone number" required />
+          <input type="tel" name="phone" placeholder="Enter your phone number" required style={{width: '100%'}} />
         </div>
       </div>
       <div className="contact-form-group">
         <label>Email Address *</label>
-        <input type="email" name="email" placeholder="Enter your email address" required />
+        <input type="email" name="email" placeholder="Enter your email address" required style={{width: '100%'}} />
       </div>
       <div className="contact-form-group">
         <label>Message *</label>
-        <textarea name="message" placeholder="Describe your consumer protection issue..." required></textarea>
+        <textarea name="message" placeholder="Describe your consumer protection issue..." required style={{width: '100%'}}></textarea>
       </div>
       <input type="hidden" name="botcheck" />
       <button type="submit" className="consult-btn contact-form-btn" disabled={loading}>

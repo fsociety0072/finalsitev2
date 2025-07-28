@@ -9,33 +9,64 @@ import Login from './Login'; // Import the new Login component
 const Thanks = () => {
   return (
     <div style={{
-      fontFamily: 'Arial, sans-serif',
-      textAlign: 'center',
-      padding: '50px 20px'
+      fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px'
     }}>
       <div style={{
-        maxWidth: '600px',
-        margin: '0 auto'
+        background: 'white',
+        padding: '40px',
+        borderRadius: '10px',
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.1)',
+        textAlign: 'center',
+        maxWidth: '500px',
+        width: '100%'
       }}>
-        <h1>Thank You!</h1>
-        <p style={{
-          fontSize: '1.2em',
-          lineHeight: '1.6',
-          color: '#34495e'
+        <div style={{
+          color: '#4CAF50',
+          fontSize: '48px',
+          marginBottom: '20px'
         }}>
-          Your message has been sent successfully. We'll get back to you soon!
+          ✓
+        </div>
+        <h1 style={{
+          color: '#2c3e50',
+          marginBottom: '20px',
+          fontSize: '2.5em'
+        }}>
+          Thank You!
+        </h1>
+        <p style={{
+          fontSize: '1.1em',
+          lineHeight: '1.6',
+          color: '#555',
+          marginBottom: '30px'
+        }}>
+          Your message has been sent successfully. We'll review your inquiry and get back to you within 24 hours.
         </p>
-        <p>
-          <a 
-            href="/" 
-            style={{
-              color: '#3498db',
-              textDecoration: 'none'
-            }}
-          >
-            ← Back to Home
-          </a>
-        </p>
+        <a 
+          href="/" 
+          style={{
+            display: 'inline-block',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white',
+            padding: '12px 30px',
+            textDecoration: 'none',
+            borderRadius: '25px',
+            fontWeight: 600,
+            transition: 'all 0.3s ease',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+          onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
+          onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
+        >
+          ← Back to Home
+        </a>
       </div>
     </div>
   );
