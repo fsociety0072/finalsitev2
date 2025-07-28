@@ -1066,12 +1066,14 @@ body, .site-wrapper {
     top: 70px;
     left: 0;
     right: 0;
-    background: #fff;
+    background: #f8f9fa;
     flex-direction: column;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 1000;
     gap: 15px;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
   }
   
   .nav.nav-open {
@@ -1079,12 +1081,23 @@ body, .site-wrapper {
   }
   
   .nav a {
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 1.1rem;
+    color: #222;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .nav a:last-child {
+    border-bottom: none;
+  }
+  
+  .nav a:hover {
+    color: #f97316;
   }
   
   .phone-link-mobile {
     display: block;
+    font-weight: 600;
   }
   
   .header-right {
