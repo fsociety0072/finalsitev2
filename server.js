@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
 
 // Middleware
 app.use(cors());
@@ -105,4 +105,11 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+}).on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`\n\nERROR: Port ${PORT} is already in use.\nAnother application is likely running on this port.\nPlease close the other application or change the port in server.js.\n\n`);
+  } else {
+    console.error('An unexpected server error occurred:', err);
+  }
+  process.exit(1);
 });

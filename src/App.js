@@ -23,38 +23,48 @@ function App() {
             <p className="site-subtitle">Legal Services</p>
           </div>
         </div>
-        
-        {/* Mobile menu button */}
-        <div className="menu-toggle" onClick={toggleMenu}>
-          <div className="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
+
+        {/* Desktop Navigation & CTA */}
+        <div className="header-desktop-nav">
+          <nav className="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div className="header-right">
+            <a href="tel:+917981650127" className="phone-icon-link">
+              <img src="/assets/phone-icon.png" alt="Call" />
+            </a>
+            <a href="tel:+917981650127" className="phone-link">+91 7981650127</a>
+            <a href="#contact" className="consult-btn">FREE CONSULTATION</a>
           </div>
         </div>
-        
-        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+
+        {/* Mobile Menu Toggle */}
+        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Mobile Navigation Menu (appears when open) */}
+        <nav className={`nav-mobile ${isMenuOpen ? 'nav-open' : ''}`}>
           <a href="#home" onClick={closeMenu}>Home</a>
           <a href="#about" onClick={closeMenu}>About</a>
           <a href="#services" onClick={closeMenu}>Services</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
-          <a href="tel:+917981650127" onClick={closeMenu}>Call</a>
-          <a href="tel:+917981650127" className="phone-link-mobile" onClick={closeMenu}>+91 79816 50127</a>
+          <a href="tel:+917981650127" className="phone-link-mobile" onClick={closeMenu}>Call Now</a>
         </nav>
-        <div className="header-right">
-          <a href="tel:+917981650127" className="phone-icon-link" style={{ display: 'inline-block', marginRight: 8 }}>
-            <img src="/assets/phone-icon.png" alt="Call" style={{ width: 24, height: 24, verticalAlign: 'middle', cursor: 'pointer' }} />
-          </a>
-          <a href="tel:+917981650127" className="phone-link">+91 79816 50127</a>
-          <a href="#contact" className="consult-btn">FREE CONSULTATION</a>
-        </div>
       </header>
 
       {/* Hero Section */}
       <section className="hero" id="home">
         <div className="hero-content">
           <div className="hero-top-row">
-            <span className="shield-icon">🛡️</span>
+            <div className="hero-shield-icon-wrapper">
+              <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>' alt="Shield Icon" className="hero-shield-icon" />
+            </div>
             <span className="hero-top-text">Advocate for Consumer Rights</span>
           </div>
           <h2 className="hero-title">

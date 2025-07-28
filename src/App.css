@@ -93,19 +93,34 @@ body, .site-wrapper {
 
 /* Mobile menu styles */
 .menu-toggle {
-  display: none;
-  flex-direction: column;
+  display: none; /* Hidden by default */
+  background: transparent;
+  border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 0;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+
+  /* Flex container to center and space the lines */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.hamburger-icon span {
+.menu-toggle span {
+  display: block;
   width: 25px;
   height: 3px;
-  background-color: #222;
-  margin: 4px 0;
-  transition: 0.4s;
-  border-radius: 2px;
+  background-color: #22304a; /* Hero section blue */
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 4px; /* Use margin for spacing */
+}
+
+.menu-toggle span:last-child {
+  margin-bottom: 0; /* Remove margin from last line */
 }
 
 .phone-link-mobile {
@@ -116,24 +131,31 @@ body, .site-wrapper {
   font-size: 1rem;
   margin: 10px 0;
 }
+.header-desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .header-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .phone-icon-link img {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  margin-right: 2px;
 }
+
 .phone-link {
   color: #22304a;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
-  margin-right: 8px;
 }
+
 .consult-btn {
   background: #f97316;
   color: #fff;
@@ -142,14 +164,49 @@ body, .site-wrapper {
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
-  transition: background 0.2s, opacity 0.2s;
-  box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+  transition: background 0.2s;
   border: none;
   cursor: pointer;
 }
+
 .consult-btn:hover {
   background: #ea580c;
-  opacity: 0.95;
+}
+
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000;
+  padding: 80px 20px 20px 20px;
+  text-align: center;
+}
+
+.nav-mobile.nav-open {
+  display: flex;
+}
+
+.nav-mobile a {
+  color: #22304a;
+  padding: 15px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.nav-mobile a:last-child {
+  border-bottom: none;
+}
+
+.phone-link-mobile {
+  color: #f97316;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 .hero {
@@ -170,9 +227,27 @@ body, .site-wrapper {
   gap: 8px;
   margin-bottom: 18px;
 }
-.shield-icon {
-  font-size: 1.2rem;
-  color: #f97316;
+.hero-shield-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #4a5a7e, #22304a);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.hero-shield-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.hero-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Replaces margin-right on the icon wrapper */
+  margin-bottom: 18px;
 }
 .hero-top-text {
   color: #f97316;
@@ -1066,14 +1141,12 @@ body, .site-wrapper {
     top: 70px;
     left: 0;
     right: 0;
-    background: #f8f9fa;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     z-index: 1000;
-    gap: 15px;
     border-top: 1px solid #e9ecef;
-    border-bottom: 1px solid #e9ecef;
+    flex-direction: column;
+    width: 100%;
   }
   
   .nav.nav-open {
@@ -1105,7 +1178,60 @@ body, .site-wrapper {
   }
 }
 
+@media (max-width: 768px) {
+  .header-desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 12px;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero-image {
+    order: 1;
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 600px) {
+  .header-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  .header-left .logo-icon {
+    font-size: 1.2rem !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+  .site-title {
+    font-size: 1.1rem;
+    line-height: 1.1;
+    text-align: left;
+    margin-bottom: 2px;
+  }
+  .site-subtitle {
+    font-size: 0.85rem;
+    text-align: left;
+  }
   .hero-title {
     font-size: 2rem;
   }
@@ -1180,4 +1306,68 @@ html, body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Mobile logo fix - highest specificity */
+@media screen and (max-width: 768px) {
+  .header .header-left .logo-icon {
+    font-size: 1.2rem !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header .header-left .logo-icon {
+    font-size: 1.1rem !important;
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    max-width: 22px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .header-left .logo-icon {
+    font-size: 1rem !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
+  }
+  
+  /* Hero section shield icon mobile fix */
+  .hero .hero-content .hero-top-row .shield-icon {
+    font-size: 0.9rem !important;
+    width: 18px !important;
+    height: 18px !important;
+    display: inline-block !important;
+  }
+  
+  .hero-top-row {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+  }
+}
+
+/* Additional mobile fixes for hero shield icon */
+@media screen and (max-width: 600px) {
+  .hero .hero-content .hero-top-row .shield-icon {
+    font-size: 1rem !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: inline-block !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero .hero-content .hero-top-row .shield-icon {
+    font-size: 1.1rem !important;
+    width: 22px !important;
+    height: 22px !important;
+    display: inline-block !important;
+  }
 }
