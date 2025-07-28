@@ -1,16 +1,14 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './AppRouter';
-import { AuthProvider } from './AuthContext';
 import './App.css';
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
-    </AuthProvider>
+    <div className="App">
+      <header className="App-header">
+        <h1>Welcome to the Legal Website</h1>
+        <p>This is the main content of the website.</p>
+      </header>
+    </div>
   );
 }
 

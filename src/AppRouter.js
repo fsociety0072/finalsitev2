@@ -1,16 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './App';
 import AdminPanel from './AdminPanel';
 import AdminRoute from './AdminRoute';
-import Login from './Login'; // Import the new Login component
+import Login from './Login';
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<Login />} /> {/* Add the login route */}
+        <Route path="/" element={<div className="App">Home Page Content</div>} />
+        <Route path="/login" element={<Login />} />
         <Route 
           path="/admin" 
           element={
